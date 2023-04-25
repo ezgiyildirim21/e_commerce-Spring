@@ -1,5 +1,6 @@
 package com.etiya.ecommerce.entities.concrete;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class VirtualCard {
 
 
     @ManyToOne()
-    @JoinColumn(name = "customer_prefer_payment_id")
+    @JoinColumn(name = "customer_prefer_payments_id")
+    @JsonIgnoreProperties("virtual_card")
     private CustomerPreferPayment customerPreferPayment;
 }

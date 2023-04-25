@@ -33,11 +33,11 @@ public class CustomerOrder {
     private String details;
 
 
-    @ManyToOne()
-    @JoinColumn(name="customers_id")
+    @ManyToOne
+    @JoinColumn(name = "customers_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "customerOrderProduct")
+    @OneToMany(mappedBy = "order")
     private List<CustomerOrderProduct> customerOrderProducts;
 
 }

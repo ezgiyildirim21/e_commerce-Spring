@@ -1,5 +1,6 @@
 package com.etiya.ecommerce.entities.concrete;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +29,7 @@ public class Supplier {
     @Column(name = "details")
     private String details;
 
-
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "supplier")
+    @JsonIgnoreProperties("supplier")
     private List<Product> products;
 }

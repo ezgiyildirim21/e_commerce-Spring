@@ -16,9 +16,8 @@ public class CreditCard{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @ManyToOne()
-    @JoinColumn(name = "customer_prefer_payment_id")
+    @JoinColumn(name = "customerPreferPayment_id")
     private CustomerPreferPayment customerPreferPayment;
 
 }

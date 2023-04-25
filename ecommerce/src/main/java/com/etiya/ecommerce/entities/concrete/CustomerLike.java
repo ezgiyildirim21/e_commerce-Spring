@@ -18,11 +18,11 @@ public class CustomerLike {
 
 
     @ManyToOne()
-    @JoinColumn(name="products_id")
+    @JoinColumn(name = "products_id")
     private Product product;
 
     @ManyToOne()
-    @JoinColumn(name="customers_id")
+    @JoinColumn(name = "customers_id")
     private Customer customer;
 
 }

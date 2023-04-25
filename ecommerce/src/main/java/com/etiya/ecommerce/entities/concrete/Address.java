@@ -36,8 +36,7 @@ public class Address {
      @Column(name = "details")
      private String details;
 
-
-     @OneToMany(mappedBy = "customerAddress")
+     @OneToMany(mappedBy = "address")
      private List<CustomerAddress>customerAddresses;
 
 

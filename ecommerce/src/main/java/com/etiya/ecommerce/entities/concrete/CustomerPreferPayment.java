@@ -24,13 +24,13 @@ public class CustomerPreferPayment {
     @JoinColumn(name="customers_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "accountCard")
+    @OneToMany(mappedBy = "customerPreferPayment")
     private List<AccountCard> accountCards;
 
-    @OneToMany(mappedBy = "creditCard")
+    @OneToMany(mappedBy = "customerPreferPayment")
     private List<CreditCard> creditCards;
 
-    @OneToMany(mappedBy = "virtualCard")
+    @OneToMany(mappedBy = "customerPreferPayment")
     private List<VirtualCard> virtualCards;
 
 }

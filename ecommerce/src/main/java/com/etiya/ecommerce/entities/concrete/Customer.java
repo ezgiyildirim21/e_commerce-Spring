@@ -15,6 +15,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     @Column(name = "full_name")
@@ -29,20 +30,19 @@ public class Customer {
     @Column(name = "details")
     private String details;
 
-
-    @OneToMany(mappedBy = "customerLike")
+    @OneToMany(mappedBy = "customer")
     private List<CustomerLike> customerLikes;
 
-    @OneToMany(mappedBy = "customerOrder")
+    @OneToMany(mappedBy = "customer")
     private List<CustomerOrder> customerOrders;
 
-    @OneToMany(mappedBy = "customerPreferPayment")
+    @OneToMany(mappedBy = "customer")
     private List<CustomerPreferPayment> customerPreferPayments;
 
-    @OneToMany(mappedBy = "ownerProduct")
+    @OneToMany(mappedBy = "customer")
     private List<OwnerProduct> ownerProducts;
 
-    @OneToMany(mappedBy = "customerAddress")
-    private List<CustomerAddress>customerAddresses;
+    @OneToMany(mappedBy = "customer")
+    private List<CustomerAddress>customersAddresses;
 
 }

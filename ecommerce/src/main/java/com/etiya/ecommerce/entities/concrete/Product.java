@@ -1,5 +1,6 @@
 package com.etiya.ecommerce.entities.concrete;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,20 +27,20 @@ public class Product {
     @Column(name = "name")
     private String name;
 
-
-    @ManyToOne()
-    @JoinColumn(name="supplier_id")
+    @ManyToOne
+    @JoinColumn (name = "suppliers_id")
+    @JsonIgnoreProperties("products")
     private Supplier supplier;
 
-    @OneToMany(mappedBy = "customerLike")
+    @OneToMany(mappedBy = "product")
     private List<CustomerLike> customerLikes;
 
-    @OneToMany(mappedBy = "customerOrderProduct")
+    @OneToMany(mappedBy = "product")
     private List<CustomerOrderProduct> customerOrderProducts;
 
-    @OneToMany(mappedBy = "ownerProduct")
+    @OneToMany(mappedBy = "product")
     private List<OwnerProduct> ownerProducts;
 
-    @OneToMany(mappedBy = "productCategory")
+    @OneToMany(mappedBy = "product")
     private List<ProductCategory> productCategories;
 }

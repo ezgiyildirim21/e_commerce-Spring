@@ -18,12 +18,11 @@ public class CustomerAddress {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @ManyToOne()
     @JoinColumn(name = "customers_id")
-    private Customer customers;
+    private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "address_id")
+    @ManyToOne()
+    @JoinColumn(name = "addresses_id")
     private Address address;
 }

@@ -10,13 +10,16 @@ import java.util.List;
 @Repository
 public interface IAddressRepository extends JpaRepository<Address,Integer>{
 
-    @Query("select count (a)from Address a")
+    @Query("SELECT COUNT (a)FROM Address a")
     long countAddressBy();
 
-    @Query("select a from Address a where a.city='Ankara'")
+    @Query("SELECT a FROM Address a WHERE a.city='Ankara'")
     List<Address>addressesInAnkara();
 
-    @Query("select distinct a.city from Address a")
+    @Query("SELECT DISTINCT a.city FROM Address a")
     List<Address>differentCity();
+
+    @Query("SELECT a.city,ca.id FROM Address a JOIN a.customerAddresses ca")
+    List<Address>getAddressByCustomerAddresses();
 
 }

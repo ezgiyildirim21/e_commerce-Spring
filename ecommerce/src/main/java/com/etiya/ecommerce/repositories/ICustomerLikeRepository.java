@@ -11,13 +11,13 @@ import java.util.List;
 @Repository
 public interface ICustomerLikeRepository extends JpaRepository<CustomerLike,Integer> {
 
-    @Query("select cl from CustomerLike cl")
+    @Query("SELECT cl FROM CustomerLike cl")
     List<CustomerLike>findAll();
 
-    @Query("select cl from CustomerLike cl")
+    @Query("SELECT cl FROM CustomerLike cl")
     List<Integer>getCustomerLikeById();
 
-    @Query("select c.fullName,cl.product from CustomerLike cl inner join Customer c on cl.customer.id=c.id ")
-    Customer getCustomerLikeByCustomerAndProduct();
+    @Query("SELECT c.fullName,cl.id FROM CustomerLike cl JOIN cl.customer c")
+    List<Customer> getCustomerLikeByCustomerAndProduct();
 
 }

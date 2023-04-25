@@ -25,4 +25,9 @@ public interface ICustomerOrderProductRepository extends JpaRepository<CustomerO
     @Query("SELECT COUNT(cop.comments) FROM CustomerOrderProduct cop")
     long countCustomerOrderProductComments();
 
+    @Query("SELECT p.name, p.price  FROM CustomerOrderProduct cop " +
+            "JOIN cop.order o " +
+            "JOIN cop.product p WHERE p.id = :productId")
+    List<CustomerOrderProduct> getCustomerOrderProductByOrdersAndProducts(int productId);
+
 }

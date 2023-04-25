@@ -16,4 +16,8 @@ public interface ICreditCardRepository extends JpaRepository<CreditCard,Integer>
 
     @Query("SELECT c.id FROM CreditCard c")
     List<Integer>findAllCreditCardId();
+
+    @Query("SELECT cc.id,cp.id FROM CreditCard cc  JOIN cc.customerPreferPayment cp")
+    List<CreditCard> getCreditCardByCustomerPreferPayment();
+
 }

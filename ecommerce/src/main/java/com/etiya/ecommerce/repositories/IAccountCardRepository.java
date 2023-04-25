@@ -13,8 +13,13 @@ public interface IAccountCardRepository extends JpaRepository<AccountCard,Intege
     @Query("SELECT a FROM AccountCard a")
     List<AccountCard> findAllAccountCard();
 
-    @Query("select a.id FROM AccountCard a")
-   List<Integer> AccountCardFindAllId();
+    @Query("SELECT a.id FROM AccountCard a")
+    List<Integer> AccountCardFindAllId();
+
+    @Query("SELECT a.id,cp.id FROM AccountCard a JOIN a.customerPreferPayment cp")
+    List<AccountCard> getAccountCardByCustomerPreferPayment();
 
 
 }
+
+

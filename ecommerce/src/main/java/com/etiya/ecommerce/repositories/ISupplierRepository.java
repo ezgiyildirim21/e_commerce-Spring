@@ -18,9 +18,12 @@ public interface ISupplierRepository extends JpaRepository<Supplier, Integer> {
     @Query("SELECT sp.id FROM Supplier sp")
     List<Supplier> findAllBySupplierById();
 
-    @Query("select sp.name from Supplier sp where sp.name='Naz'")
+    @Query("SELECT sp.name FROM Supplier sp WHERE sp.name='Naz'")
     List<Supplier>supplierInName();
 
-    @Query("select sp.surname from Supplier sp where sp.surname='Deniz'")
+    @Query("SELECT sp.surname FROM Supplier sp WHERE sp.surname='Deniz'")
     List<Supplier>supplierInSurname();
+
+    @Query("SELECT sp.name,sp.id,p.details FROM Supplier sp JOIN sp.products p")
+    List<Supplier> getProductBySupplier();
 }

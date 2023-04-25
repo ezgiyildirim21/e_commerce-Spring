@@ -21,4 +21,9 @@ public interface IOwnerProductRepository extends JpaRepository<OwnerProduct, Int
 
     @Query("SELECT COUNT(op.product) FROM OwnerProduct op")
     long countCustomerOrderProductProducts();
+
+    @Query("SELECT c.fullName, p.name FROM OwnerProduct op " +
+            "JOIN op.customer c " +
+            "JOIN op.product p")
+    List<OwnerProduct> getOwnerProductsByCustomersAndProducts();
 }

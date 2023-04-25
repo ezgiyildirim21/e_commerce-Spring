@@ -1,6 +1,7 @@
 package com.etiya.ecommerce.repositories;
 
 import com.etiya.ecommerce.entities.concrete.Address;
+import com.etiya.ecommerce.entities.concrete.Customer;
 import com.etiya.ecommerce.entities.concrete.Product;
 import com.etiya.ecommerce.entities.concrete.ProductCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,7 +22,10 @@ public interface IProductCategoryRepository extends JpaRepository<ProductCategor
     @Query("SELECT COUNT(pc.product) FROM ProductCategory pc")
     long countProductCategoryProduct();
 
-    @Query("select distinct pc.name from ProductCategory pc")
+    @Query("SELECT DISTINCT pc.name FROM ProductCategory pc")
     List<ProductCategory>differentCity();
+
+    @Query("SELECT pc.name,pc.id,p.name FROM ProductCategory pc JOIN pc.product p")
+    List<ProductCategory> getProductByProductCategory();
 
 }

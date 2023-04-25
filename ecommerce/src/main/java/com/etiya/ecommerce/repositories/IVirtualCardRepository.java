@@ -1,6 +1,5 @@
 package com.etiya.ecommerce.repositories;
 
-import com.etiya.ecommerce.entities.concrete.AccountCard;
 import com.etiya.ecommerce.entities.concrete.VirtualCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +13,9 @@ public interface IVirtualCardRepository extends JpaRepository<VirtualCard, Integ
     @Query("SELECT vc FROM VirtualCard vc")
     List<VirtualCard> findAllVirtualCard();
 
-    @Query("select vc.id FROM VirtualCard vc")
+    @Query("SELECT vc.id FROM VirtualCard vc")
     List<Integer> VirtualCardFindAllId();
+
+    @Query("SELECT v.id,cp.id FROM VirtualCard v JOIN v.customerPreferPayment cp")
+    List<VirtualCard> getVirtualCardByCustomerPreferPayment();
 }
